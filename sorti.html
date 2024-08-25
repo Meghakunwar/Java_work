@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Management System</title>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <style>/* styles.css */
+        /* styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    overflow: hidden;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.sort-options {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sort-options label {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.sort-options select {
+    padding: 10px;
+    font-size: 1em;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.pg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pg-item {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pg-item:hover {
+    transform: scale(1.02);
+}
+
+.pg-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.pg-location {
+    margin-top: 5px;
+    color: #777;
+}
+
+.pg-rent {
+    font-size: 1.2em;
+    color: #28a745;
+    font-weight: bold;
+}
+
+        
+</style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>PG Management System</h1>
+        <div class="sort-options">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" onchange="sortPGs()">
+                <option value="name">Name</option>
+                <option value="rent">Rent</option>
+                <option value="location">Location</option>
+            </select>
+        </div>
+        <div class="pg-list" id="pg-list">
+            <!-- PG entries will be inserted here by JavaScript -->
+        </div>
+    </div>
+    <div class="container">
+        <h1>PG Management System</h1>
+        <div class="sort-options">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" onchange="sortPGs()">
+                <option value="name">Name</option>
+                <option value="rent">Rent</option>
+                <option value="location">Location</option>
+            </select>
+        </div>
+        <div class="pg-list" id="pg-list">
+            <!-- PG entries will be inserted here by JavaScript -->
+        </div>
+    </div>
+    <script>// script.js
+        const pgList = [
+            { name: "RED PG", rent: 7000, location: "Kathgodam haldawani" },
+            { name: "BROWN PG", rent: 6500, location: "near saattall(bhimtal)" },
+            { name: "YELLOW PG", rent: 7000, location: "Bhimtal" },
+            { name: "PINK PG", rent: 6500, location: "Lake side Bhimtal" },
+            { name: "ORANGE PG", rent: 6500, location: "Bhawali road" },
+            { name: "PURPLE PG", rent: 7000, location: "Nanital road" },
+            { name: "BLACK PG", rent: 4000, location: "near bus station bhimtal" },
+            { name: "BLUE PG", rent: 4000, location: " BHawali road" },
+            { name: "GREEN PG", rent: 7500, location: " in Nanital" },
+            { name: "WHITE  PG", rent: 4500, location: "Location B" },
+            
+        ];
+        
+        function displayPGs(list) {
+            const pgListContainer = document.getElementById("pg-list");
+            pgListContainer.innerHTML = "";
+            list.forEach(pg => {
+                const pgItem = document.createElement("div");
+                pgItem.className = "pg-item";
+        
+                pgItem.innerHTML = `
+                    <div class="pg-details">
+                        <span class="pg-name">${pg.name}</span>
+                        <span class="pg-location">Location: ${pg.location}</span>
+                    </div>
+                    <div class="pg-rent">Rent: $${pg.rent}</div>
+                `;
+                pgListContainer.appendChild(pgItem);
+            });
+        }
+        
+        function sortPGs() {
+            const sortBy = document.getElementById("sort-by").value;
+            let sortedList = [];
+        
+            if (sortBy === "name") {
+                sortedList = pgList.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === "rent") {
+                sortedList = pgList.sort((a, b) => a.rent - b.rent);
+            } else if (sortBy === "location") {
+                sortedList = pgList.sort((a, b) => a.location.localeCompare(b.location));
+            }
+        
+            displayPGs(sortedList);
+        }
+        
+        // Initial display
+        displayPGs(pgList);
+        </script>
+</body>
+</html>
+</script>
+    

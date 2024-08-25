@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find PG Accommodations Near Colleges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background-color:#ff6f61;
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1 {
+            margin: 0;
+        }
+        
+        .navbar nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .navbar nav ul li {
+            margin-left: 1rem;
+        }
+        
+        .navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        h3 {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .sort-buttons {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .sort-buttons button {
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .pg-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .pg-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pg-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .pg-card p {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .pg-card a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .pg-card:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="container">
+                <h1>PG Finder</h1>
+                <nav>
+                    <ul>
+                        <li><a href="productHomepage.html">Home</a></li>
+                        <li><a href="productAbout.html">About</a></li>
+                        <li><a href="productcontactpage.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h3>Find the Best PG Accommodations Near Your College</h3>
+            <div class="sort-buttons">
+                <button onclick="sortCards('asc')">Sort Ascending</button>
+                <button onclick="sortCards('desc')">Sort Descending</button>
+            </div>
+            <section class="pg-list" id="pgList">
+                <div class="pg-card" data-name="Red PG">
+                    <a href="red_desc.html" target="_blank">
+                        <img src="red_out.jpg" alt="Red PG">
+                        <p>Red PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Brown PG">
+                    <a href="brown_desc.html" target="_blank">
+                        <img src="brown_out.jpg" alt="Brown PG">
+                        <p>Brown PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Blue PG">
+                    <a href="blue_desc.html" target="_blank">
+                        <img src="blue_out.jpg" alt="Blue PG">
+                        <p>Blue PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Yellow PG">
+                    <a href="yellow_desc.html" target="_blank">
+                        <img src="yello_out.jpg" alt="Yellow PG">
+                        <p>Yellow PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Pink PG">
+                    <a href="pink_desc.html" target="_blank">
+                        <img src="pink_out.jpg" alt="Pink PG">
+                        <p>Pink PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Black PG">
+                    <a href="black_desc.html" target="_blank">
+                        <img src="black_out.jpg" alt="Black PG">
+                        <p>Black PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Purple PG">
+                    <a href="purple_desc.html" target="_blank">
+                        <img src="purple_out.jpg" alt="Purple PG">
+                        <p>Purple PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Orange PG">
+                    <a href="orange_desc.html" target="_blank">
+                        <img src="orange_out.jpg" alt="Orange PG">
+                        <p>Orange PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="White PG">
+                    <a href="white_desc.html" target="_blank">
+                        <img src="white_out.jpg" alt="White PG">
+                        <p>White PG</p>
+                    </a>
+                </div>
+                <div class="pg-card" data-name="Green PG">
+                    <a href="green_desc.html" target="_blank">
+                        <img src="green_out.jpg" alt="Green PG">
+                        <p>Green PG</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PG Finder. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function sortCards(order) {
+            const pgList = document.getElementById('pgList');
+            const cards = Array.from(pgList.querySelectorAll('.pg-card'));
+
+            cards.sort((a, b) => {
+                const nameA = a.getAttribute('data-name').toUpperCase();
+                const nameB = b.getAttribute('data-name').toUpperCase();
+
+                if (order === 'asc') {
+                    return nameA > nameB ? 1 : -1;
+                } else {
+                    return nameA < nameB ? 1 : -1;
+                }
+            });
+
+            cards.forEach(card => pgList.appendChild(card));
+        }
+    </script>
+</body>
+</html>

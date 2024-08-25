@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Submitted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .detail {
+            margin-bottom: 20px;
+        }
+        .detail label {
+            font-weight: bold;
+        }
+        .detail p {
+            margin: 5px 0;
+        }
+        .status {
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status.pending {
+            background-color: #ffc107;
+        }
+        .status.completed {
+            background-color: #28a745;
+        }
+        .status.failed {
+            background-color: #dc3545;
+        }
+        .date {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Submitted</h2>
+
+        <div class="detail">
+            <label>Student Name:</label>
+            <p>Megha kunwar</p>
+        </div>
+        
+        <div class="detail">
+            <label>PG Name:</label>
+            <p>Orange PG Bhimtal</p>
+        </div>
+        
+        <div class="detail">
+            <label>Payment Amount:</label>
+            <p>₹10,000</p>
+        </div>
+
+        <div class="detail">
+            <label>Payment Type:</label>
+            <p>CashPay</p>
+        </div>
+
+        
+
+        <div class="status completed">
+            <p>Payment Status: Completed</p>
+        </div>
+
+        <div class="date">
+            <p>Payment Submitted on: 2024-07-01</p>
+        </div>
+    </div>
+</body>
+</html>

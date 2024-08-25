@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .product-image {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .product-image img.active {
+            display: block;
+        }
+
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin: 0 0 20px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 20px;
+        }
+
+        .add-to-cart-btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #218838;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .slider-controls button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            text-shadow: 0 0 5px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="pink_out.jpg" alt="Product Image 1" class="active">
+            <img src="pink_room.jpg" alt="Product Image 2">
+            <img src="pink_new_bath.jpg" alt="Product Image 3">
+
+            <div class="slider-controls">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+        <div class="product-details">
+            <h1 class="product-title">Pink PG </h1>
+            <h3> lake side bhimtal</h3>
+            <p class="product-description">Comfortable rooms with AC, cozy beds, private bathrooms, daily meals included, WiFi, utilities covered, close to transportation and amenities, ideal for students.</p>
+            <p class="product-price">Rs 6500 monthly</p>
+            <button class="add-to-cart-btn" onclick="redirectToBooking()">Book now</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToBooking() {
+            // Replace 'booking.html' with your actual booking page URL
+            window.location.href = 'AvaliableRooms.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.product-image img');
+            let currentIndex = 0;
+
+            document.getElementById('next').addEventListener('click', function () {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            });
+
+            document.getElementById('prev').addEventListener('click', function () {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                images[currentIndex].classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

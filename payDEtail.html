@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color:#ff6f61;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-type {
+            margin-bottom: 20px;
+        }
+        .payment-type label {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .payment-type input[type="radio"] {
+            margin-right: 5px;
+        }
+        .payment-type img {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .payment-info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Form</h2>
+        <form action="submit_payment.php" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <div class="payment-type">
+                <label>Payment Type:</label>
+                <label><input type="radio" name="payment_type" value="credit_card" required> 
+                    <img src="CraditCardIcon.jpg" alt="Credit Card"> Credit Card</label>
+                <label><input type="radio" name="payment_type" value="debit_card"> 
+                    <img src="debitCard_icon.jpg" alt="Debit Card"> Debit Card</label>
+                <label><input type="radio" name="payment_type" value="paypal"> 
+                    <img src="PaypalIcon.jpg" alt="PayPal"> PayPal</label>
+                <label><input type="radio" name="payment_type" value="upi"> 
+                    <img src="UPI.jpg" alt="UPI"> UPI</label>
+                <label><input type="radio" name="payment_type" value="cash"> 
+                    <img src="CashPay.jpg" alt="Cash"> Cash</label>
+            </div>
+
+            <div id="credit_card-info" class="payment-info">
+                <label for="cc-number">Credit Card Number</label>
+                <input type="text" id="cc-number" name="cc_number">
+                
+                <label for="cc-expiry">Expiry Date</label>
+                <input type="date" id="cc-expiry" name="cc_expiry">
+                
+                <label for="cc-cvv">CVV</label>
+                <input type="text" id="cc-cvv" name="cc_cvv">
+            </div>
+
+            <div id="debit_card-info" class="payment-info">
+                <label for="dc-number">Debit Card Number</label>
+                <input type="text" id="dc-number" name="dc_number">
+                
+                <label for="dc-expiry">Expiry Date</label>
+                <input type="date" id="dc-expiry" name="dc_expiry">
+                
+                <label for="dc-cvv">CVV</label>
+                <input type="text" id="dc-cvv" name="dc_cvv">
+            </div>
+
+            <div id="paypal-info" class="payment-info">
+                <label for="paypal-email">PayPal Email</label>
+                <input type="email" id="paypal-email" name="paypal_email">
+            </div>
+
+            <div id="upi-info" class="payment-info">
+                <label for="upi-id">UPI ID</label>
+                <input type="text" id="upi-id" name="upi_id">
+            </div>
+
+            <div id="cash-info" class="payment-info">
+                <p>Pay with cash upon delivery or at our office.</p>
+            </div>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentTypeInputs = document.querySelectorAll('input[name="payment_type"]');
+            const paymentInfos = document.querySelectorAll('.payment-info');
+
+            paymentTypeInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    paymentInfos.forEach(info => info.style.display = 'none');
+                    const selectedPaymentInfo = document.getElementById(input.value + '-info');
+                    if (selectedPaymentInfo) {
+                        selectedPaymentInfo.style.display = 'block';
+                    }
+                });
+            });
+
+            paymentTypeInputs[0].dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

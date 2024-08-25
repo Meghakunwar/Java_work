@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student About Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* light cyan background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #00695c; /* teal container background */
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff8a80; /* light red heading */
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #80bdff;
+            outline: 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #004d40; /* dark teal button */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00251a; /* darker teal on hover */
+        }
+
+        .student-info {
+            margin-top: 30px;
+            display: none;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-info h2 {
+            color: #00695c; /* teal subheading */
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .student-info p {
+            font-size: 18px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .student-info p strong {
+            color: #00695c; /* teal text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Student</h1>
+        <form id="student-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="parentsPhoneNumber">Parents' Phone Number:</label>
+                <input type="text" id="parentsPhoneNumber" name="parentsPhoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+                <label for="identityCard">Identity Card Number:</label>
+                <input type="text" id="identityCard" name="identityCard" required>
+            </div>
+            <div class="form-group">
+                <label for="collegeName">College Name:</label>
+                <input type="text" id="collegeName" name="collegeName" required>
+            </div>
+            <div class="form-group">
+                <label for="pgName">PG Name:</label>
+                <input type="text" id="pgName" name="pgName" required>
+            </div>
+            <div class="form-group">
+                <label for="paymentStatus">Payment Status:</label>
+                <select id="paymentStatus" name="paymentStatus" required>
+                    <option value="Full Payment">Full Payment</option>
+                    <option value="EMI">EMI</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="student-info" id="student-info">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> <span id="display-name"></span></p>
+            <p><strong>Father's Name:</strong> <span id="display-fatherName"></span></p>
+            <p><strong>Phone Number:</strong> <span id="display-phoneNumber"></span></p>
+            <p><strong>Parents' Phone Number:</strong> <span id="display-parentsPhoneNumber"></span></p>
+            <p><strong>Address:</strong> <span id="display-address"></span></p>
+            <p><strong>Course:</strong> <span id="display-course"></span></p>
+            <p><strong>Identity Card Number:</strong> <span id="display-identityCard"></span></p>
+            <p><strong>College Name:</strong> <span id="display-collegeName"></span></p>
+            <p><strong>PG Name:</strong> <span id="display-pgName"></span></p>
+            <p><strong>Payment Status:</strong> <span id="display-paymentStatus"></span></p>
+        </div>
+    </div>
+    
+    <script>
+    document.getElementById('student-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const requiredFields = [
+            'name', 'fatherName', 'phoneNumber', 'parentsPhoneNumber', 'address', 'course', 'identityCard', 
+            'collegeName', 'pgName', 'paymentStatus'
+        ];
+        
+        let formValid = true;
+
+        requiredFields.forEach(field => {
+            if (!formData.get(field)) {
+                formValid = false;
+                alert(field + ' is required!');
+            }
+        });
+
+        if (formValid) {
+            const studentData = {
+                name: formData.get('name'),
+                fatherName: formData.get('fatherName'),
+                phoneNumber: formData.get('phoneNumber'),
+                parentsPhoneNumber: formData.get('parentsPhoneNumber'),
+                address: formData.get('address'),
+                course: formData.get('course'),
+                identityCard: formData.get('identityCard'),
+                collegeName: formData.get('collegeName'),
+                pgName: formData.get('pgName'),
+                paymentStatus: formData.get('paymentStatus')
+            };
+
+            document.getElementById('display-name').innerText = studentData.name;
+            document.getElementById('display-fatherName').innerText = studentData.fatherName;
+            document.getElementById('display-phoneNumber').innerText = studentData.phoneNumber;
+            document.getElementById('display-parentsPhoneNumber').innerText = studentData.parentsPhoneNumber;
+            document.getElementById('display-address').innerText = studentData.address;
+            document.getElementById('display-course').innerText = studentData.course;
+            document.getElementById('display-identityCard').innerText = studentData.identityCard;
+            document.getElementById('display-collegeName').innerText = studentData.collegeName;
+            document.getElementById('display-pgName').innerText = studentData.pgName;
+            document.getElementById('display-paymentStatus').innerText = studentData.paymentStatus;
+
+            document.getElementById('student-info').style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>

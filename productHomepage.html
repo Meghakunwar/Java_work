@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Finder - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        
+        .navbar {
+            background-color: #ff6f61;
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1, .navbar img {
+            margin: 0;
+        }
+        
+        .navbar img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .navbar nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .navbar nav ul li {
+            margin-left: 1rem;
+        }
+        
+        .navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .hero {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h2 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .pg-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .pg-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+            background-color: #fff;
+        }
+        
+        .pg-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .pg-card a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .pg-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .find-button {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .find-button:hover {
+            background-color: #ff4a3c;
+        }
+        
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="container">
+                <div style="display: flex; align-items: center;">
+                    <img src="PgLogo.jpg" alt="PG Finder Logo">
+                    <h1>PG Finder</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="productHomepage.html">Home</a></li>
+                        <li><a href="productAbout.html">About</a></li>
+                        <li><a href="productcontactpage.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h2>Find Your Perfect PG Accommodation</h2>
+                <p>Discover the best PG options near your college with PG Finder.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="intro">
+                <h3>Welcome to PG Finder</h3>
+                <p>Your trusted partner in finding comfortable and affordable living spaces near your college.</p>
+            </div>
+            
+            <div class="pg-list">
+                <!-- PG Card 1 -->
+                <div class="pg-card">
+                   
+                        <img src="PG2.jpg" alt="PG 1">
+                    
+                        <p>Comfortable living with all amenities.</p>
+                    </a>
+                </div>
+                
+                <!-- PG Card 2 -->
+                <div class="pg-card">
+                    
+                        <img src="Pg3.jpg" alt="PG 2">
+                        
+                        <p>Affordable and convenient location.</p>
+                    </a>
+                </div>
+            </div>
+
+            <a href="prodectsort.html" class="find-button">Find PG</a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PG Finder. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

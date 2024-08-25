@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Management System</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <?php include 'example.php'; ?>
+
+    <header class="container">
+        <h1>PG Management System</h1>
+        <a href="#notifications">Notifications</a>
+    </header>
+    <div class="container main">
+        <div class="stats">
+            <div>
+                <h2>Total Rooms</h2>
+                <p><?php echo htmlspecialchars($total_rooms); ?></p>
+            </div>
+            <div>
+                <h2>Available Rooms</h2>
+                <p><?php echo htmlspecialchars($available_rooms); ?></p>
+            </div>
+            <div>
+                <h2>Total PGs</h2>
+                <p><?php echo htmlspecialchars($total_pgs); ?></p>
+            </div>
+            <div>
+                <h2>Available PGs</h2>
+                <p><?php echo htmlspecialchars($available_pgs); ?></p>
+            </div>
+        </div>
+        <div class="notifications" id="notifications">
+            <h2>New Notifications</h2>
+            <ul>
+                <?php if ($notifications_result->num_rows > 0): ?>
+                    <?php while($row = $notifications_result->fetch_assoc()): ?>
+                        <li><?php echo htmlspecialchars($row['date']); ?>: <?php echo htmlspecialchars($row['message']); ?></li>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <li>No new notifications</li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
